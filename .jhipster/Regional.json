@@ -1,0 +1,29 @@
+{
+  "applications": ["fastasistance"],
+  "changelogDate": "20220603014932",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "regional",
+  "fields": [
+    {
+      "fieldName": "nombreRegional",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "45"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Regional",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "centroDeFormacion",
+      "otherEntityRelationshipName": "regional",
+      "relationshipName": "centroDeFormacion",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

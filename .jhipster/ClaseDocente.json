@@ -1,0 +1,36 @@
+{
+  "applications": ["fastasistance"],
+  "changelogDate": "20220603015632",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "clase_docente",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ClaseDocente",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "docente",
+      "otherEntityRelationshipName": "claseDocente",
+      "relationshipName": "docente",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "jornada",
+      "otherEntityName": "horario",
+      "otherEntityRelationshipName": "claseDocente",
+      "relationshipName": "horario",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nombreClase",
+      "otherEntityName": "clase",
+      "otherEntityRelationshipName": "claseDocente",
+      "relationshipName": "clase",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

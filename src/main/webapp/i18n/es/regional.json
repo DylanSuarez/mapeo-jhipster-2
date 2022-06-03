@@ -1,0 +1,25 @@
+{
+  "fastasistanceApp": {
+    "regional": {
+      "home": {
+        "title": "Regionals",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Regional",
+        "createOrEditLabel": "Crear o editar Regional",
+        "notFound": "Ningún Regionals encontrado"
+      },
+      "created": "Un nuevo Regional ha sido creado con el identificador {{ param }}",
+      "updated": "Un Regional ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Regional ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Regional {{ id }}?"
+      },
+      "detail": {
+        "title": "Regional"
+      },
+      "id": "ID",
+      "nombreRegional": "Nombre Regional",
+      "centroDeFormacion": "Centro De Formacion"
+    }
+  }
+}

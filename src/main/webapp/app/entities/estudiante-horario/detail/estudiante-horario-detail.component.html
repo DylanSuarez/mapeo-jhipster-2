@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="estudianteHorario">
+      <h2 data-cy="estudianteHorarioDetailsHeading">
+        <span fsisTranslate="fastasistanceApp.estudianteHorario.detail.title">Estudiante Horario</span>
+      </h2>
+
+      <hr />
+
+      <fsis-alert-error></fsis-alert-error>
+
+      <fsis-alert></fsis-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span fsisTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ estudianteHorario.id }}</span>
+        </dd>
+        <dt><span fsisTranslate="fastasistanceApp.estudianteHorario.estudiante">Estudiante</span></dt>
+        <dd>
+          <div *ngIf="estudianteHorario.estudiante">
+            <a [routerLink]="['/estudiante', estudianteHorario.estudiante?.id, 'view']">{{ estudianteHorario.estudiante?.huella }}</a>
+          </div>
+        </dd>
+        <dt><span fsisTranslate="fastasistanceApp.estudianteHorario.horario">Horario</span></dt>
+        <dd>
+          <div *ngIf="estudianteHorario.horario">
+            <a [routerLink]="['/horario', estudianteHorario.horario?.id, 'view']">{{ estudianteHorario.horario?.jornada }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span fsisTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/estudiante-horario', estudianteHorario.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span fsisTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

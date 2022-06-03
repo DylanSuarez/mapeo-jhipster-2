@@ -1,0 +1,227 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="fsis-customer-heading" data-cy="CustomerCreateUpdateHeading" fsisTranslate="fastasistanceApp.customer.home.createOrEditLabel">
+        Create or edit a Customer
+      </h2>
+
+      <div>
+        <fsis-alert-error></fsis-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" fsisTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.customer.numDocumento" for="field_numDocumento">Num Documento</label>
+          <input
+            type="text"
+            class="form-control"
+            name="numDocumento"
+            id="field_numDocumento"
+            data-cy="numDocumento"
+            formControlName="numDocumento"
+          />
+          <div
+            *ngIf="editForm.get('numDocumento')!.invalid && (editForm.get('numDocumento')!.dirty || editForm.get('numDocumento')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('numDocumento')?.errors?.required"
+              fsisTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('numDocumento')?.errors?.maxlength"
+              fsisTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 50 }"
+            >
+              This field cannot be longer than 50 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.customer.primerNombre" for="field_primerNombre">Primer Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            name="primerNombre"
+            id="field_primerNombre"
+            data-cy="primerNombre"
+            formControlName="primerNombre"
+          />
+          <div
+            *ngIf="editForm.get('primerNombre')!.invalid && (editForm.get('primerNombre')!.dirty || editForm.get('primerNombre')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('primerNombre')?.errors?.required"
+              fsisTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('primerNombre')?.errors?.maxlength"
+              fsisTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 50 }"
+            >
+              This field cannot be longer than 50 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.customer.segundoNombre" for="field_segundoNombre">Segundo Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            name="segundoNombre"
+            id="field_segundoNombre"
+            data-cy="segundoNombre"
+            formControlName="segundoNombre"
+          />
+          <div
+            *ngIf="
+              editForm.get('segundoNombre')!.invalid && (editForm.get('segundoNombre')!.dirty || editForm.get('segundoNombre')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('segundoNombre')?.errors?.maxlength"
+              fsisTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 50 }"
+            >
+              This field cannot be longer than 50 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.customer.primerApellido" for="field_primerApellido"
+            >Primer Apellido</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="primerApellido"
+            id="field_primerApellido"
+            data-cy="primerApellido"
+            formControlName="primerApellido"
+          />
+          <div
+            *ngIf="
+              editForm.get('primerApellido')!.invalid && (editForm.get('primerApellido')!.dirty || editForm.get('primerApellido')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('primerApellido')?.errors?.required"
+              fsisTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('primerApellido')?.errors?.maxlength"
+              fsisTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 50 }"
+            >
+              This field cannot be longer than 50 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.customer.segundoApellido" for="field_segundoApellido"
+            >Segundo Apellido</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="segundoApellido"
+            id="field_segundoApellido"
+            data-cy="segundoApellido"
+            formControlName="segundoApellido"
+          />
+          <div
+            *ngIf="
+              editForm.get('segundoApellido')!.invalid &&
+              (editForm.get('segundoApellido')!.dirty || editForm.get('segundoApellido')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('segundoApellido')?.errors?.maxlength"
+              fsisTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 50 }"
+            >
+              This field cannot be longer than 50 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.customer.user" for="field_user">User</label>
+          <select class="form-control" id="field_user" data-cy="user" name="user" formControlName="user">
+            <option *ngIf="!editForm.get('user')!.value" [ngValue]="null" selected></option>
+            <option
+              [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption"
+              *ngFor="let userOption of usersSharedCollection; trackBy: trackUserById"
+            >
+              {{ userOption.login }}
+            </option>
+          </select>
+        </div>
+        <div *ngIf="editForm.get(['user'])!.invalid && (editForm.get(['user'])!.dirty || editForm.get(['user'])!.touched)">
+          <small class="form-text text-danger" *ngIf="editForm.get(['user'])?.errors?.required" fsisTranslate="entity.validation.required">
+            This field is required.
+          </small>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.customer.tipoDocumento" for="field_tipoDocumento">Tipo Documento</label>
+          <select
+            class="form-control"
+            id="field_tipoDocumento"
+            data-cy="tipoDocumento"
+            name="tipoDocumento"
+            formControlName="tipoDocumento"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                tipoDocumentoOption.id === editForm.get('tipoDocumento')!.value?.id
+                  ? editForm.get('tipoDocumento')!.value
+                  : tipoDocumentoOption
+              "
+              *ngFor="let tipoDocumentoOption of tipoDocumentosSharedCollection; trackBy: trackTipoDocumentoById"
+            >
+              {{ tipoDocumentoOption.iniciales }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span fsisTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span fsisTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+{
+  "applications": ["fastasistance"],
+  "changelogDate": "20220603015432",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "clase_ficha",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ClaseFicha",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nombreFicha",
+      "otherEntityName": "ficha",
+      "otherEntityRelationshipName": "claseFicha",
+      "relationshipName": "ficha",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nombreClase",
+      "otherEntityName": "clase",
+      "otherEntityRelationshipName": "claseFicha",
+      "relationshipName": "clase",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

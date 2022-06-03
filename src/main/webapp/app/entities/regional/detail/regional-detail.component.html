@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="regional">
+      <h2 data-cy="regionalDetailsHeading"><span fsisTranslate="fastasistanceApp.regional.detail.title">Regional</span></h2>
+
+      <hr />
+
+      <fsis-alert-error></fsis-alert-error>
+
+      <fsis-alert></fsis-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span fsisTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ regional.id }}</span>
+        </dd>
+        <dt><span fsisTranslate="fastasistanceApp.regional.nombreRegional">Nombre Regional</span></dt>
+        <dd>
+          <span>{{ regional.nombreRegional }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span fsisTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/regional', regional.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span fsisTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

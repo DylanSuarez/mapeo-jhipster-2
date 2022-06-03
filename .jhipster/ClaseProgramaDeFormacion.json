@@ -1,0 +1,23 @@
+{
+  "applications": ["fastasistance"],
+  "changelogDate": "20220603015532",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "clase_programa_de_formacion",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ClaseProgramaDeFormacion",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "nombrePrograma",
+      "otherEntityName": "programaDeFormacion",
+      "otherEntityRelationshipName": "claseProgramaDeFormacion",
+      "relationshipName": "programadeformacion",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

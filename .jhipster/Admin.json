@@ -1,0 +1,37 @@
+{
+  "applications": ["fastasistance"],
+  "changelogDate": "20220603014432",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "admin",
+  "fields": [
+    {
+      "fieldName": "cargo",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "45"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Admin",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "numDocumento",
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "admin",
+      "relationshipName": "customer",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nombreCentro",
+      "otherEntityName": "centroDeFormacion",
+      "otherEntityRelationshipName": "admin",
+      "relationshipName": "centroDeFormacion",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

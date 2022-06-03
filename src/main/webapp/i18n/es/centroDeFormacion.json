@@ -1,0 +1,28 @@
+{
+  "fastasistanceApp": {
+    "centroDeFormacion": {
+      "home": {
+        "title": "Centro De Formacions",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Centro De Formacion",
+        "createOrEditLabel": "Crear o editar Centro De Formacion",
+        "notFound": "Ningún Centro De Formacions encontrado"
+      },
+      "created": "Un nuevo Centro De Formacion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Centro De Formacion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Centro De Formacion ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Centro De Formacion {{ id }}?"
+      },
+      "detail": {
+        "title": "Centro De Formacion"
+      },
+      "id": "ID",
+      "nombreCentro": "Nombre Centro",
+      "docente": "Docente",
+      "admin": "Admin",
+      "programaDeFormacion": "Programa De Formacion",
+      "regional": "Regional"
+    }
+  }
+}

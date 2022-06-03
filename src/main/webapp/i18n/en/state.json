@@ -1,0 +1,9 @@
+{
+  "fastasistanceApp": {
+    "State": {
+      "null": "",
+      "ACTIVE": "Activo",
+      "INACTIVE": "Inactivo"
+    }
+  }
+}

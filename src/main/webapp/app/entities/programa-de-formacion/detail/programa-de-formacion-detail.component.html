@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="programaDeFormacion">
+      <h2 data-cy="programaDeFormacionDetailsHeading">
+        <span fsisTranslate="fastasistanceApp.programaDeFormacion.detail.title">Programa De Formacion</span>
+      </h2>
+
+      <hr />
+
+      <fsis-alert-error></fsis-alert-error>
+
+      <fsis-alert></fsis-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span fsisTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ programaDeFormacion.id }}</span>
+        </dd>
+        <dt><span fsisTranslate="fastasistanceApp.programaDeFormacion.nombrePrograma">Nombre Programa</span></dt>
+        <dd>
+          <span>{{ programaDeFormacion.nombrePrograma }}</span>
+        </dd>
+        <dt><span fsisTranslate="fastasistanceApp.programaDeFormacion.estadoPrograma">Estado Programa</span></dt>
+        <dd>
+          <span fsisTranslate="{{ 'fastasistanceApp.State.' + programaDeFormacion.estadoPrograma }}">{{
+            programaDeFormacion.estadoPrograma
+          }}</span>
+        </dd>
+        <dt><span fsisTranslate="fastasistanceApp.programaDeFormacion.centroDeFormacion">Centro De Formacion</span></dt>
+        <dd>
+          <div *ngIf="programaDeFormacion.centroDeFormacion">
+            <a [routerLink]="['/centro-de-formacion', programaDeFormacion.centroDeFormacion?.id, 'view']">{{
+              programaDeFormacion.centroDeFormacion?.nombreCentro
+            }}</a>
+          </div>
+        </dd>
+        <dt><span fsisTranslate="fastasistanceApp.programaDeFormacion.clase">Clase</span></dt>
+        <dd>
+          <div *ngIf="programaDeFormacion.clase">
+            <a [routerLink]="['/clase', programaDeFormacion.clase?.id, 'view']">{{ programaDeFormacion.clase?.nombreClase }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span fsisTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/programa-de-formacion', programaDeFormacion.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span fsisTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

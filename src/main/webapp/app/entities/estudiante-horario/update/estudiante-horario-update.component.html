@@ -1,0 +1,66 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="fsis-estudiante-horario-heading"
+        data-cy="EstudianteHorarioCreateUpdateHeading"
+        fsisTranslate="fastasistanceApp.estudianteHorario.home.createOrEditLabel"
+      >
+        Create or edit a Estudiante Horario
+      </h2>
+
+      <div>
+        <fsis-alert-error></fsis-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" fsisTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.estudianteHorario.estudiante" for="field_estudiante">Estudiante</label>
+          <select class="form-control" id="field_estudiante" data-cy="estudiante" name="estudiante" formControlName="estudiante">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                estudianteOption.id === editForm.get('estudiante')!.value?.id ? editForm.get('estudiante')!.value : estudianteOption
+              "
+              *ngFor="let estudianteOption of estudiantesSharedCollection; trackBy: trackEstudianteById"
+            >
+              {{ estudianteOption.huella }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.estudianteHorario.horario" for="field_horario">Horario</label>
+          <select class="form-control" id="field_horario" data-cy="horario" name="horario" formControlName="horario">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="horarioOption.id === editForm.get('horario')!.value?.id ? editForm.get('horario')!.value : horarioOption"
+              *ngFor="let horarioOption of horariosSharedCollection; trackBy: trackHorarioById"
+            >
+              {{ horarioOption.jornada }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span fsisTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span fsisTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

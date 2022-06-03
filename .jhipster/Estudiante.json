@@ -1,0 +1,56 @@
+{
+  "applications": ["fastasistance"],
+  "changelogDate": "20220603014532",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "estudiante",
+  "fields": [
+    {
+      "fieldName": "huella",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required", "unique"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Estudiante",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "estudianteHorario",
+      "otherEntityRelationshipName": "estudiante",
+      "relationshipName": "estudianteHorario",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "numDocumento",
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "estudiante",
+      "relationshipName": "customer",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nombrePrograma",
+      "otherEntityName": "programaDeFormacion",
+      "otherEntityRelationshipName": "estudiante",
+      "relationshipName": "programadeformacion",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "numTrimestre",
+      "otherEntityName": "trimestre",
+      "otherEntityRelationshipName": "estudiante",
+      "relationshipName": "trimestre",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nombreFicha",
+      "otherEntityName": "ficha",
+      "otherEntityRelationshipName": "estudiante",
+      "relationshipName": "ficha",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

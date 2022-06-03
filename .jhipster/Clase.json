@@ -1,0 +1,48 @@
+{
+  "applications": ["fastasistance"],
+  "changelogDate": "20220603015132",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "clase",
+  "fields": [
+    {
+      "fieldName": "nombreClase",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "45"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Clase",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "claseDocente",
+      "otherEntityRelationshipName": "clase",
+      "relationshipName": "claseDocente",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "programaDeFormacion",
+      "otherEntityRelationshipName": "clase",
+      "relationshipName": "programaDeFormacion",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "claseFicha",
+      "otherEntityRelationshipName": "clase",
+      "relationshipName": "claseFicha",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "numTrimestre",
+      "otherEntityName": "trimestre",
+      "otherEntityRelationshipName": "clase",
+      "relationshipName": "trimestre",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

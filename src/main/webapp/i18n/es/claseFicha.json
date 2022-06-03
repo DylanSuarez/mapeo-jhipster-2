@@ -1,0 +1,25 @@
+{
+  "fastasistanceApp": {
+    "claseFicha": {
+      "home": {
+        "title": "Clase Fichas",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Clase Ficha",
+        "createOrEditLabel": "Crear o editar Clase Ficha",
+        "notFound": "Ningún Clase Fichas encontrado"
+      },
+      "created": "Un nuevo Clase Ficha ha sido creado con el identificador {{ param }}",
+      "updated": "Un Clase Ficha ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Clase Ficha ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Clase Ficha {{ id }}?"
+      },
+      "detail": {
+        "title": "Clase Ficha"
+      },
+      "id": "ID",
+      "ficha": "Ficha",
+      "clase": "Clase"
+    }
+  }
+}

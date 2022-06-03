@@ -1,0 +1,140 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="fsis-horario-heading" data-cy="HorarioCreateUpdateHeading" fsisTranslate="fastasistanceApp.horario.home.createOrEditLabel">
+        Create or edit a Horario
+      </h2>
+
+      <div>
+        <fsis-alert-error></fsis-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" fsisTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.horario.horaInicio" for="field_horaInicio">Hora Inicio</label>
+          <div class="d-flex">
+            <input
+              id="field_horaInicio"
+              data-cy="horaInicio"
+              type="datetime-local"
+              class="form-control"
+              name="horaInicio"
+              formControlName="horaInicio"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('horaInicio')!.invalid && (editForm.get('horaInicio')!.dirty || editForm.get('horaInicio')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('horaInicio')?.errors?.required"
+              fsisTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('horaInicio')?.errors?.ZonedDateTimelocal"
+              fsisTranslate="entity.validation.ZonedDateTimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.horario.horaFinal" for="field_horaFinal">Hora Final</label>
+          <div class="d-flex">
+            <input
+              id="field_horaFinal"
+              data-cy="horaFinal"
+              type="datetime-local"
+              class="form-control"
+              name="horaFinal"
+              formControlName="horaFinal"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div *ngIf="editForm.get('horaFinal')!.invalid && (editForm.get('horaFinal')!.dirty || editForm.get('horaFinal')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('horaFinal')?.errors?.required"
+              fsisTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('horaFinal')?.errors?.ZonedDateTimelocal"
+              fsisTranslate="entity.validation.ZonedDateTimelocal"
+            >
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.horario.fecha" for="field_fecha">Fecha</label>
+          <div class="input-group">
+            <input
+              id="field_fecha"
+              data-cy="fecha"
+              type="text"
+              class="form-control"
+              name="fecha"
+              ngbDatepicker
+              #fechaDp="ngbDatepicker"
+              formControlName="fecha"
+            />
+            <button type="button" class="btn btn-secondary" (click)="fechaDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+          <div *ngIf="editForm.get('fecha')!.invalid && (editForm.get('fecha')!.dirty || editForm.get('fecha')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('fecha')?.errors?.required" fsisTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.horario.jornada" for="field_jornada">Jornada</label>
+          <input type="text" class="form-control" name="jornada" id="field_jornada" data-cy="jornada" formControlName="jornada" />
+          <div *ngIf="editForm.get('jornada')!.invalid && (editForm.get('jornada')!.dirty || editForm.get('jornada')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('jornada')?.errors?.required"
+              fsisTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('jornada')?.errors?.maxlength"
+              fsisTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 45 }"
+            >
+              This field cannot be longer than 45 characters.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span fsisTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span fsisTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

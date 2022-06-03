@@ -1,0 +1,82 @@
+<div>
+  <h2 id="page-heading" data-cy="AdminHeading">
+    <span fsisTranslate="fastasistanceApp.admin.home.title">Admins</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span fsisTranslate="fastasistanceApp.admin.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-admin"
+        [routerLink]="['/admin/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span fsisTranslate="fastasistanceApp.admin.home.createLabel"> Create a new Admin </span>
+      </button>
+    </div>
+  </h2>
+
+  <fsis-alert-error></fsis-alert-error>
+
+  <fsis-alert></fsis-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="admins?.length === 0">
+    <span fsisTranslate="fastasistanceApp.admin.home.notFound">No admins found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="admins && admins.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span fsisTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span fsisTranslate="fastasistanceApp.admin.cargo">Cargo</span></th>
+          <th scope="col"><span fsisTranslate="fastasistanceApp.admin.customer">Customer</span></th>
+          <th scope="col"><span fsisTranslate="fastasistanceApp.admin.centroDeFormacion">Centro De Formacion</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let admin of admins; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/admin', admin.id, 'view']">{{ admin.id }}</a>
+          </td>
+          <td>{{ admin.cargo }}</td>
+          <td>
+            <div *ngIf="admin.customer">
+              <a [routerLink]="['/customer', admin.customer?.id, 'view']">{{ admin.customer?.numDocumento }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="admin.centroDeFormacion">
+              <a [routerLink]="['/centro-de-formacion', admin.centroDeFormacion?.id, 'view']">{{
+                admin.centroDeFormacion?.nombreCentro
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/admin', admin.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" fsisTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/admin', admin.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" fsisTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(admin)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" fsisTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

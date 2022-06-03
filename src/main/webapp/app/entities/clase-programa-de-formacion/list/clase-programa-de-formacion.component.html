@@ -1,0 +1,86 @@
+<div>
+  <h2 id="page-heading" data-cy="ClaseProgramaDeFormacionHeading">
+    <span fsisTranslate="fastasistanceApp.claseProgramaDeFormacion.home.title">Clase Programa De Formacions</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span fsisTranslate="fastasistanceApp.claseProgramaDeFormacion.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-clase-programa-de-formacion"
+        [routerLink]="['/clase-programa-de-formacion/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span fsisTranslate="fastasistanceApp.claseProgramaDeFormacion.home.createLabel"> Create a new Clase Programa De Formacion </span>
+      </button>
+    </div>
+  </h2>
+
+  <fsis-alert-error></fsis-alert-error>
+
+  <fsis-alert></fsis-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="claseProgramaDeFormacions?.length === 0">
+    <span fsisTranslate="fastasistanceApp.claseProgramaDeFormacion.home.notFound">No claseProgramaDeFormacions found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="claseProgramaDeFormacions && claseProgramaDeFormacions.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span fsisTranslate="global.field.id">ID</span></th>
+          <th scope="col">
+            <span fsisTranslate="fastasistanceApp.claseProgramaDeFormacion.programadeformacion">Programadeformacion</span>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let claseProgramaDeFormacion of claseProgramaDeFormacions; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/clase-programa-de-formacion', claseProgramaDeFormacion.id, 'view']">{{ claseProgramaDeFormacion.id }}</a>
+          </td>
+          <td>
+            <div *ngIf="claseProgramaDeFormacion.programadeformacion">
+              <a [routerLink]="['/programa-de-formacion', claseProgramaDeFormacion.programadeformacion?.id, 'view']">{{
+                claseProgramaDeFormacion.programadeformacion?.nombrePrograma
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/clase-programa-de-formacion', claseProgramaDeFormacion.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" fsisTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/clase-programa-de-formacion', claseProgramaDeFormacion.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" fsisTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(claseProgramaDeFormacion)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" fsisTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

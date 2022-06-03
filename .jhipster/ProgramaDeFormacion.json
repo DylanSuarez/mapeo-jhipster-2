@@ -1,0 +1,61 @@
+{
+  "applications": ["fastasistance"],
+  "changelogDate": "20220603015232",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "programa_de_formacion",
+  "fields": [
+    {
+      "fieldName": "nombrePrograma",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "45"
+    },
+    {
+      "fieldName": "estadoPrograma",
+      "fieldType": "State",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ACTIVE (Activo),INACTIVE (Inactivo)"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ProgramaDeFormacion",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "estudiante",
+      "otherEntityRelationshipName": "programadeformacion",
+      "relationshipName": "estudiante",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "claseProgramaDeFormacion",
+      "otherEntityRelationshipName": "programadeformacion",
+      "relationshipName": "claseProgramaDeFormacion",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "ficha",
+      "otherEntityRelationshipName": "programadeformacion",
+      "relationshipName": "ficha",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "nombreCentro",
+      "otherEntityName": "centroDeFormacion",
+      "otherEntityRelationshipName": "programaDeFormacion",
+      "relationshipName": "centroDeFormacion",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nombreClase",
+      "otherEntityName": "clase",
+      "otherEntityRelationshipName": "programaDeFormacion",
+      "relationshipName": "clase",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

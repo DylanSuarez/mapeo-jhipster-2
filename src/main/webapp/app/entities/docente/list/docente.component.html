@@ -1,0 +1,90 @@
+<div>
+  <h2 id="page-heading" data-cy="DocenteHeading">
+    <span fsisTranslate="fastasistanceApp.docente.home.title">Docentes</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span fsisTranslate="fastasistanceApp.docente.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-docente"
+        [routerLink]="['/docente/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span fsisTranslate="fastasistanceApp.docente.home.createLabel"> Create a new Docente </span>
+      </button>
+    </div>
+  </h2>
+
+  <fsis-alert-error></fsis-alert-error>
+
+  <fsis-alert></fsis-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="docentes?.length === 0">
+    <span fsisTranslate="fastasistanceApp.docente.home.notFound">No docentes found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="docentes && docentes.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span fsisTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span fsisTranslate="fastasistanceApp.docente.customer">Customer</span></th>
+          <th scope="col"><span fsisTranslate="fastasistanceApp.docente.centroDeFormacion">Centro De Formacion</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let docente of docentes; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/docente', docente.id, 'view']">{{ docente.id }}</a>
+          </td>
+          <td>
+            <div *ngIf="docente.customer">
+              <a [routerLink]="['/customer', docente.customer?.id, 'view']">{{ docente.customer?.numDocumento }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="docente.centroDeFormacion">
+              <a [routerLink]="['/centro-de-formacion', docente.centroDeFormacion?.id, 'view']">{{
+                docente.centroDeFormacion?.nombreCentro
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/docente', docente.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" fsisTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/docente', docente.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" fsisTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(docente)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" fsisTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

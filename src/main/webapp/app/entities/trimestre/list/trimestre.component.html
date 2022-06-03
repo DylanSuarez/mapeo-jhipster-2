@@ -1,0 +1,78 @@
+<div>
+  <h2 id="page-heading" data-cy="TrimestreHeading">
+    <span fsisTranslate="fastasistanceApp.trimestre.home.title">Trimestres</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span fsisTranslate="fastasistanceApp.trimestre.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-trimestre"
+        [routerLink]="['/trimestre/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span fsisTranslate="fastasistanceApp.trimestre.home.createLabel"> Create a new Trimestre </span>
+      </button>
+    </div>
+  </h2>
+
+  <fsis-alert-error></fsis-alert-error>
+
+  <fsis-alert></fsis-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="trimestres?.length === 0">
+    <span fsisTranslate="fastasistanceApp.trimestre.home.notFound">No trimestres found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="trimestres && trimestres.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span fsisTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span fsisTranslate="fastasistanceApp.trimestre.numTrimestre">Num Trimestre</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let trimestre of trimestres; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/trimestre', trimestre.id, 'view']">{{ trimestre.id }}</a>
+          </td>
+          <td>{{ trimestre.numTrimestre }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/trimestre', trimestre.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" fsisTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/trimestre', trimestre.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" fsisTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(trimestre)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" fsisTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+{
+  "applications": ["fastasistance"],
+  "changelogDate": "20220603014832",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "horario",
+  "fields": [
+    {
+      "fieldName": "horaInicio",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "horaFinal",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "fecha",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "jornada",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "45"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Horario",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "estudianteHorario",
+      "otherEntityRelationshipName": "horario",
+      "relationshipName": "estudianteHorario",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "claseDocente",
+      "otherEntityRelationshipName": "horario",
+      "relationshipName": "claseDocente",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

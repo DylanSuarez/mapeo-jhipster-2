@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="docente">
+      <h2 data-cy="docenteDetailsHeading"><span fsisTranslate="fastasistanceApp.docente.detail.title">Docente</span></h2>
+
+      <hr />
+
+      <fsis-alert-error></fsis-alert-error>
+
+      <fsis-alert></fsis-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span fsisTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ docente.id }}</span>
+        </dd>
+        <dt><span fsisTranslate="fastasistanceApp.docente.customer">Customer</span></dt>
+        <dd>
+          <div *ngIf="docente.customer">
+            <a [routerLink]="['/customer', docente.customer?.id, 'view']">{{ docente.customer?.numDocumento }}</a>
+          </div>
+        </dd>
+        <dt><span fsisTranslate="fastasistanceApp.docente.centroDeFormacion">Centro De Formacion</span></dt>
+        <dd>
+          <div *ngIf="docente.centroDeFormacion">
+            <a [routerLink]="['/centro-de-formacion', docente.centroDeFormacion?.id, 'view']">{{
+              docente.centroDeFormacion?.nombreCentro
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span fsisTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/docente', docente.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span fsisTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

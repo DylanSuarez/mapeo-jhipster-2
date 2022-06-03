@@ -1,0 +1,84 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="fsis-centro-de-formacion-heading"
+        data-cy="CentroDeFormacionCreateUpdateHeading"
+        fsisTranslate="fastasistanceApp.centroDeFormacion.home.createOrEditLabel"
+      >
+        Create or edit a Centro De Formacion
+      </h2>
+
+      <div>
+        <fsis-alert-error></fsis-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" fsisTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.centroDeFormacion.nombreCentro" for="field_nombreCentro"
+            >Nombre Centro</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nombreCentro"
+            id="field_nombreCentro"
+            data-cy="nombreCentro"
+            formControlName="nombreCentro"
+          />
+          <div
+            *ngIf="editForm.get('nombreCentro')!.invalid && (editForm.get('nombreCentro')!.dirty || editForm.get('nombreCentro')!.touched)"
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nombreCentro')?.errors?.required"
+              fsisTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nombreCentro')?.errors?.maxlength"
+              fsisTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 45 }"
+            >
+              This field cannot be longer than 45 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.centroDeFormacion.regional" for="field_regional">Regional</label>
+          <select class="form-control" id="field_regional" data-cy="regional" name="regional" formControlName="regional">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="regionalOption.id === editForm.get('regional')!.value?.id ? editForm.get('regional')!.value : regionalOption"
+              *ngFor="let regionalOption of regionalsSharedCollection; trackBy: trackRegionalById"
+            >
+              {{ regionalOption.nombreRegional }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span fsisTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span fsisTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

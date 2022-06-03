@@ -1,0 +1,36 @@
+{
+  "applications": ["fastasistance"],
+  "changelogDate": "20220603014632",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "docente",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Docente",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "claseDocente",
+      "otherEntityRelationshipName": "docente",
+      "relationshipName": "claseDocente",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "numDocumento",
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "docente",
+      "relationshipName": "customer",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "nombreCentro",
+      "otherEntityName": "centroDeFormacion",
+      "otherEntityRelationshipName": "docente",
+      "relationshipName": "centroDeFormacion",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

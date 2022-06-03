@@ -1,0 +1,24 @@
+{
+  "fastasistanceApp": {
+    "claseProgramaDeFormacion": {
+      "home": {
+        "title": "Clase Programa De Formacions",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Clase Programa De Formacion",
+        "createOrEditLabel": "Crear o editar Clase Programa De Formacion",
+        "notFound": "Ningún Clase Programa De Formacions encontrado"
+      },
+      "created": "Un nuevo Clase Programa De Formacion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Clase Programa De Formacion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Clase Programa De Formacion ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Clase Programa De Formacion {{ id }}?"
+      },
+      "detail": {
+        "title": "Clase Programa De Formacion"
+      },
+      "id": "ID",
+      "programadeformacion": "Programadeformacion"
+    }
+  }
+}

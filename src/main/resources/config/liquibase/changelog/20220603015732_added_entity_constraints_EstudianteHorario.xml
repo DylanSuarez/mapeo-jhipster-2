@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity EstudianteHorario.
+    -->
+    <changeSet id="20220603015732-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="estudiante_id"
+                                 baseTableName="estudiante_horario"
+                                 constraintName="fk_estudiante_horario__estudiante_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="estudiante"/>
+
+        <addForeignKeyConstraint baseColumnNames="horario_id"
+                                 baseTableName="estudiante_horario"
+                                 constraintName="fk_estudiante_horario__horario_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="horario"/>
+    </changeSet>
+</databaseChangeLog>

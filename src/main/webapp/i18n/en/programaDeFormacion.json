@@ -1,0 +1,30 @@
+{
+  "fastasistanceApp": {
+    "programaDeFormacion": {
+      "home": {
+        "title": "Programa De Formacions",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Programa De Formacion",
+        "createOrEditLabel": "Create or edit a Programa De Formacion",
+        "notFound": "No Programa De Formacions found"
+      },
+      "created": "A new Programa De Formacion is created with identifier {{ param }}",
+      "updated": "A Programa De Formacion is updated with identifier {{ param }}",
+      "deleted": "A Programa De Formacion is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Programa De Formacion {{ id }}?"
+      },
+      "detail": {
+        "title": "Programa De Formacion"
+      },
+      "id": "ID",
+      "nombrePrograma": "Nombre Programa",
+      "estadoPrograma": "Estado Programa",
+      "estudiante": "Estudiante",
+      "claseProgramaDeFormacion": "Clase Programa De Formacion",
+      "ficha": "Ficha",
+      "centroDeFormacion": "Centro De Formacion",
+      "clase": "Clase"
+    }
+  }
+}

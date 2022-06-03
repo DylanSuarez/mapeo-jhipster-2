@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="estudiante">
+      <h2 data-cy="estudianteDetailsHeading"><span fsisTranslate="fastasistanceApp.estudiante.detail.title">Estudiante</span></h2>
+
+      <hr />
+
+      <fsis-alert-error></fsis-alert-error>
+
+      <fsis-alert></fsis-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span fsisTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ estudiante.id }}</span>
+        </dd>
+        <dt><span fsisTranslate="fastasistanceApp.estudiante.huella">Huella</span></dt>
+        <dd>
+          <span>{{ estudiante.huella }}</span>
+        </dd>
+        <dt><span fsisTranslate="fastasistanceApp.estudiante.customer">Customer</span></dt>
+        <dd>
+          <div *ngIf="estudiante.customer">
+            <a [routerLink]="['/customer', estudiante.customer?.id, 'view']">{{ estudiante.customer?.numDocumento }}</a>
+          </div>
+        </dd>
+        <dt><span fsisTranslate="fastasistanceApp.estudiante.programadeformacion">Programadeformacion</span></dt>
+        <dd>
+          <div *ngIf="estudiante.programadeformacion">
+            <a [routerLink]="['/programa-de-formacion', estudiante.programadeformacion?.id, 'view']">{{
+              estudiante.programadeformacion?.nombrePrograma
+            }}</a>
+          </div>
+        </dd>
+        <dt><span fsisTranslate="fastasistanceApp.estudiante.trimestre">Trimestre</span></dt>
+        <dd>
+          <div *ngIf="estudiante.trimestre">
+            <a [routerLink]="['/trimestre', estudiante.trimestre?.id, 'view']">{{ estudiante.trimestre?.numTrimestre }}</a>
+          </div>
+        </dd>
+        <dt><span fsisTranslate="fastasistanceApp.estudiante.ficha">Ficha</span></dt>
+        <dd>
+          <div *ngIf="estudiante.ficha">
+            <a [routerLink]="['/ficha', estudiante.ficha?.id, 'view']">{{ estudiante.ficha?.nombreFicha }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span fsisTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/estudiante', estudiante.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span fsisTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

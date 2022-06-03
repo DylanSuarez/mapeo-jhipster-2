@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ficha">
+      <h2 data-cy="fichaDetailsHeading"><span fsisTranslate="fastasistanceApp.ficha.detail.title">Ficha</span></h2>
+
+      <hr />
+
+      <fsis-alert-error></fsis-alert-error>
+
+      <fsis-alert></fsis-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span fsisTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ficha.id }}</span>
+        </dd>
+        <dt><span fsisTranslate="fastasistanceApp.ficha.nombreFicha">Nombre Ficha</span></dt>
+        <dd>
+          <span>{{ ficha.nombreFicha }}</span>
+        </dd>
+        <dt><span fsisTranslate="fastasistanceApp.ficha.estadoFicha">Estado Ficha</span></dt>
+        <dd>
+          <span fsisTranslate="{{ 'fastasistanceApp.State.' + ficha.estadoFicha }}">{{ ficha.estadoFicha }}</span>
+        </dd>
+        <dt><span fsisTranslate="fastasistanceApp.ficha.programadeformacion">Programadeformacion</span></dt>
+        <dd>
+          <div *ngIf="ficha.programadeformacion">
+            <a [routerLink]="['/programa-de-formacion', ficha.programadeformacion?.id, 'view']">{{
+              ficha.programadeformacion?.nombrePrograma
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span fsisTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ficha', ficha.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span fsisTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

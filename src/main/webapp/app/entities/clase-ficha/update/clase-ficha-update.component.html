@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="fsis-clase-ficha-heading"
+        data-cy="ClaseFichaCreateUpdateHeading"
+        fsisTranslate="fastasistanceApp.claseFicha.home.createOrEditLabel"
+      >
+        Create or edit a Clase Ficha
+      </h2>
+
+      <div>
+        <fsis-alert-error></fsis-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" fsisTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.claseFicha.ficha" for="field_ficha">Ficha</label>
+          <select class="form-control" id="field_ficha" data-cy="ficha" name="ficha" formControlName="ficha">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="fichaOption.id === editForm.get('ficha')!.value?.id ? editForm.get('ficha')!.value : fichaOption"
+              *ngFor="let fichaOption of fichasSharedCollection; trackBy: trackFichaById"
+            >
+              {{ fichaOption.nombreFicha }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.claseFicha.clase" for="field_clase">Clase</label>
+          <select class="form-control" id="field_clase" data-cy="clase" name="clase" formControlName="clase">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="claseOption.id === editForm.get('clase')!.value?.id ? editForm.get('clase')!.value : claseOption"
+              *ngFor="let claseOption of clasesSharedCollection; trackBy: trackClaseById"
+            >
+              {{ claseOption.nombreClase }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span fsisTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span fsisTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

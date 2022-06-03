@@ -1,0 +1,48 @@
+{
+  "applications": ["fastasistance"],
+  "changelogDate": "20220603015032",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "centro_de_formacion",
+  "fields": [
+    {
+      "fieldName": "nombreCentro",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "45"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CentroDeFormacion",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "docente",
+      "otherEntityRelationshipName": "centroDeFormacion",
+      "relationshipName": "docente",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "admin",
+      "otherEntityRelationshipName": "centroDeFormacion",
+      "relationshipName": "admin",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "programaDeFormacion",
+      "otherEntityRelationshipName": "centroDeFormacion",
+      "relationshipName": "programaDeFormacion",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "nombreRegional",
+      "otherEntityName": "regional",
+      "otherEntityRelationshipName": "centroDeFormacion",
+      "relationshipName": "regional",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

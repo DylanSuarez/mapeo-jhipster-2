@@ -1,0 +1,81 @@
+{
+  "applications": ["fastasistance"],
+  "changelogDate": "20220603014332",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "customer",
+  "fields": [
+    {
+      "fieldName": "numDocumento",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "primerNombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "segundoNombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "primerApellido",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "segundoApellido",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Customer",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "login",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "customer",
+      "ownerSide": true,
+      "relationshipName": "user",
+      "relationshipType": "one-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityName": "estudiante",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "estudiante",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "admin",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "admin",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "docente",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "docente",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "iniciales",
+      "otherEntityName": "tipoDocumento",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "tipoDocumento",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

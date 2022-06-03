@@ -1,0 +1,35 @@
+{
+  "applications": ["fastasistance"],
+  "changelogDate": "20220603014732",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "trimestre",
+  "fields": [
+    {
+      "fieldName": "numTrimestre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "45"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Trimestre",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "estudiante",
+      "otherEntityRelationshipName": "trimestre",
+      "relationshipName": "estudiante",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "clase",
+      "otherEntityRelationshipName": "trimestre",
+      "relationshipName": "clase",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

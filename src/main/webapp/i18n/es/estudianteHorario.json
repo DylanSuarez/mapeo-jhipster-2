@@ -1,0 +1,25 @@
+{
+  "fastasistanceApp": {
+    "estudianteHorario": {
+      "home": {
+        "title": "Estudiante Horarios",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Estudiante Horario",
+        "createOrEditLabel": "Crear o editar Estudiante Horario",
+        "notFound": "Ningún Estudiante Horarios encontrado"
+      },
+      "created": "Un nuevo Estudiante Horario ha sido creado con el identificador {{ param }}",
+      "updated": "Un Estudiante Horario ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Estudiante Horario ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Estudiante Horario {{ id }}?"
+      },
+      "detail": {
+        "title": "Estudiante Horario"
+      },
+      "id": "ID",
+      "estudiante": "Estudiante",
+      "horario": "Horario"
+    }
+  }
+}

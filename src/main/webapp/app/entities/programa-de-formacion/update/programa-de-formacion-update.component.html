@@ -1,0 +1,140 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="fsis-programa-de-formacion-heading"
+        data-cy="ProgramaDeFormacionCreateUpdateHeading"
+        fsisTranslate="fastasistanceApp.programaDeFormacion.home.createOrEditLabel"
+      >
+        Create or edit a Programa De Formacion
+      </h2>
+
+      <div>
+        <fsis-alert-error></fsis-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" fsisTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.programaDeFormacion.nombrePrograma" for="field_nombrePrograma"
+            >Nombre Programa</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="nombrePrograma"
+            id="field_nombrePrograma"
+            data-cy="nombrePrograma"
+            formControlName="nombrePrograma"
+          />
+          <div
+            *ngIf="
+              editForm.get('nombrePrograma')!.invalid && (editForm.get('nombrePrograma')!.dirty || editForm.get('nombrePrograma')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nombrePrograma')?.errors?.required"
+              fsisTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nombrePrograma')?.errors?.maxlength"
+              fsisTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 45 }"
+            >
+              This field cannot be longer than 45 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.programaDeFormacion.estadoPrograma" for="field_estadoPrograma"
+            >Estado Programa</label
+          >
+          <select
+            class="form-control"
+            name="estadoPrograma"
+            formControlName="estadoPrograma"
+            id="field_estadoPrograma"
+            data-cy="estadoPrograma"
+          >
+            <option [ngValue]="null">{{ 'fastasistanceApp.State.null' | translate }}</option>
+            <option *ngFor="let state of stateValues" [value]="state">{{ 'fastasistanceApp.State.' + state | translate }}</option>
+          </select>
+          <div
+            *ngIf="
+              editForm.get('estadoPrograma')!.invalid && (editForm.get('estadoPrograma')!.dirty || editForm.get('estadoPrograma')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('estadoPrograma')?.errors?.required"
+              fsisTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.programaDeFormacion.centroDeFormacion" for="field_centroDeFormacion"
+            >Centro De Formacion</label
+          >
+          <select
+            class="form-control"
+            id="field_centroDeFormacion"
+            data-cy="centroDeFormacion"
+            name="centroDeFormacion"
+            formControlName="centroDeFormacion"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                centroDeFormacionOption.id === editForm.get('centroDeFormacion')!.value?.id
+                  ? editForm.get('centroDeFormacion')!.value
+                  : centroDeFormacionOption
+              "
+              *ngFor="let centroDeFormacionOption of centroDeFormacionsSharedCollection; trackBy: trackCentroDeFormacionById"
+            >
+              {{ centroDeFormacionOption.nombreCentro }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.programaDeFormacion.clase" for="field_clase">Clase</label>
+          <select class="form-control" id="field_clase" data-cy="clase" name="clase" formControlName="clase">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="claseOption.id === editForm.get('clase')!.value?.id ? editForm.get('clase')!.value : claseOption"
+              *ngFor="let claseOption of clasesSharedCollection; trackBy: trackClaseById"
+            >
+              {{ claseOption.nombreClase }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span fsisTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span fsisTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

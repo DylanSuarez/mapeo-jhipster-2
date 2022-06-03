@@ -1,0 +1,28 @@
+{
+  "fastasistanceApp": {
+    "ficha": {
+      "home": {
+        "title": "Fichas",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Ficha",
+        "createOrEditLabel": "Crear o editar Ficha",
+        "notFound": "Ningún Fichas encontrado"
+      },
+      "created": "Un nuevo Ficha ha sido creado con el identificador {{ param }}",
+      "updated": "Un Ficha ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Ficha ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Ficha {{ id }}?"
+      },
+      "detail": {
+        "title": "Ficha"
+      },
+      "id": "ID",
+      "nombreFicha": "Nombre Ficha",
+      "estadoFicha": "Estado Ficha",
+      "estudiante": "Estudiante",
+      "claseFicha": "Clase Ficha",
+      "programadeformacion": "Programadeformacion"
+    }
+  }
+}

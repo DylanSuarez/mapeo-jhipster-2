@@ -1,0 +1,30 @@
+{
+  "applications": ["fastasistance"],
+  "changelogDate": "20220603015732",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "estudiante_horario",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "EstudianteHorario",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "huella",
+      "otherEntityName": "estudiante",
+      "otherEntityRelationshipName": "estudianteHorario",
+      "relationshipName": "estudiante",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityField": "jornada",
+      "otherEntityName": "horario",
+      "otherEntityRelationshipName": "estudianteHorario",
+      "relationshipName": "horario",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

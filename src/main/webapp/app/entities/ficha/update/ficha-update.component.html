@@ -1,0 +1,105 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="fsis-ficha-heading" data-cy="FichaCreateUpdateHeading" fsisTranslate="fastasistanceApp.ficha.home.createOrEditLabel">
+        Create or edit a Ficha
+      </h2>
+
+      <div>
+        <fsis-alert-error></fsis-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" fsisTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.ficha.nombreFicha" for="field_nombreFicha">Nombre Ficha</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nombreFicha"
+            id="field_nombreFicha"
+            data-cy="nombreFicha"
+            formControlName="nombreFicha"
+          />
+          <div *ngIf="editForm.get('nombreFicha')!.invalid && (editForm.get('nombreFicha')!.dirty || editForm.get('nombreFicha')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nombreFicha')?.errors?.required"
+              fsisTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nombreFicha')?.errors?.maxlength"
+              fsisTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 45 }"
+            >
+              This field cannot be longer than 45 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.ficha.estadoFicha" for="field_estadoFicha">Estado Ficha</label>
+          <select class="form-control" name="estadoFicha" formControlName="estadoFicha" id="field_estadoFicha" data-cy="estadoFicha">
+            <option [ngValue]="null">{{ 'fastasistanceApp.State.null' | translate }}</option>
+            <option *ngFor="let state of stateValues" [value]="state">{{ 'fastasistanceApp.State.' + state | translate }}</option>
+          </select>
+          <div *ngIf="editForm.get('estadoFicha')!.invalid && (editForm.get('estadoFicha')!.dirty || editForm.get('estadoFicha')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('estadoFicha')?.errors?.required"
+              fsisTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" fsisTranslate="fastasistanceApp.ficha.programadeformacion" for="field_programadeformacion"
+            >Programadeformacion</label
+          >
+          <select
+            class="form-control"
+            id="field_programadeformacion"
+            data-cy="programadeformacion"
+            name="programadeformacion"
+            formControlName="programadeformacion"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                programaDeFormacionOption.id === editForm.get('programadeformacion')!.value?.id
+                  ? editForm.get('programadeformacion')!.value
+                  : programaDeFormacionOption
+              "
+              *ngFor="let programaDeFormacionOption of programaDeFormacionsSharedCollection; trackBy: trackProgramaDeFormacionById"
+            >
+              {{ programaDeFormacionOption.nombrePrograma }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span fsisTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span fsisTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

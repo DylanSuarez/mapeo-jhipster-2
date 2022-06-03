@@ -1,0 +1,25 @@
+{
+  "fastasistanceApp": {
+    "regional": {
+      "home": {
+        "title": "Regionals",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Regional",
+        "createOrEditLabel": "Create or edit a Regional",
+        "notFound": "No Regionals found"
+      },
+      "created": "A new Regional is created with identifier {{ param }}",
+      "updated": "A Regional is updated with identifier {{ param }}",
+      "deleted": "A Regional is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Regional {{ id }}?"
+      },
+      "detail": {
+        "title": "Regional"
+      },
+      "id": "ID",
+      "nombreRegional": "Nombre Regional",
+      "centroDeFormacion": "Centro De Formacion"
+    }
+  }
+}

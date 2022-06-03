@@ -1,0 +1,25 @@
+{
+  "fastasistanceApp": {
+    "estudianteHorario": {
+      "home": {
+        "title": "Estudiante Horarios",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Estudiante Horario",
+        "createOrEditLabel": "Create or edit a Estudiante Horario",
+        "notFound": "No Estudiante Horarios found"
+      },
+      "created": "A new Estudiante Horario is created with identifier {{ param }}",
+      "updated": "A Estudiante Horario is updated with identifier {{ param }}",
+      "deleted": "A Estudiante Horario is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Estudiante Horario {{ id }}?"
+      },
+      "detail": {
+        "title": "Estudiante Horario"
+      },
+      "id": "ID",
+      "estudiante": "Estudiante",
+      "horario": "Horario"
+    }
+  }
+}

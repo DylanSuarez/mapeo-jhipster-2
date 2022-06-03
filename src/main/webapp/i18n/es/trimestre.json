@@ -1,0 +1,26 @@
+{
+  "fastasistanceApp": {
+    "trimestre": {
+      "home": {
+        "title": "Trimestres",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Trimestre",
+        "createOrEditLabel": "Crear o editar Trimestre",
+        "notFound": "Ningún Trimestres encontrado"
+      },
+      "created": "Un nuevo Trimestre ha sido creado con el identificador {{ param }}",
+      "updated": "Un Trimestre ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Trimestre ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Trimestre {{ id }}?"
+      },
+      "detail": {
+        "title": "Trimestre"
+      },
+      "id": "ID",
+      "numTrimestre": "Num Trimestre",
+      "estudiante": "Estudiante",
+      "clase": "Clase"
+    }
+  }
+}

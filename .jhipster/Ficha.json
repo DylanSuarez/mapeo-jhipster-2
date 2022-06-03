@@ -1,0 +1,48 @@
+{
+  "applications": ["fastasistance"],
+  "changelogDate": "20220603015332",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "ficha",
+  "fields": [
+    {
+      "fieldName": "nombreFicha",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "45"
+    },
+    {
+      "fieldName": "estadoFicha",
+      "fieldType": "State",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ACTIVE (Activo),INACTIVE (Inactivo)"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Ficha",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "estudiante",
+      "otherEntityRelationshipName": "ficha",
+      "relationshipName": "estudiante",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "claseFicha",
+      "otherEntityRelationshipName": "ficha",
+      "relationshipName": "claseFicha",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityField": "nombrePrograma",
+      "otherEntityName": "programaDeFormacion",
+      "otherEntityRelationshipName": "ficha",
+      "relationshipName": "programadeformacion",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

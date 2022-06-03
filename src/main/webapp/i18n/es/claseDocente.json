@@ -1,0 +1,26 @@
+{
+  "fastasistanceApp": {
+    "claseDocente": {
+      "home": {
+        "title": "Clase Docentes",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Clase Docente",
+        "createOrEditLabel": "Crear o editar Clase Docente",
+        "notFound": "Ningún Clase Docentes encontrado"
+      },
+      "created": "Un nuevo Clase Docente ha sido creado con el identificador {{ param }}",
+      "updated": "Un Clase Docente ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Clase Docente ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Clase Docente {{ id }}?"
+      },
+      "detail": {
+        "title": "Clase Docente"
+      },
+      "id": "ID",
+      "docente": "Docente",
+      "horario": "Horario",
+      "clase": "Clase"
+    }
+  }
+}

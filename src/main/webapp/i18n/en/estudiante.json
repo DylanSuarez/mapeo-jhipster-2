@@ -1,0 +1,29 @@
+{
+  "fastasistanceApp": {
+    "estudiante": {
+      "home": {
+        "title": "Estudiantes",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Estudiante",
+        "createOrEditLabel": "Create or edit a Estudiante",
+        "notFound": "No Estudiantes found"
+      },
+      "created": "A new Estudiante is created with identifier {{ param }}",
+      "updated": "A Estudiante is updated with identifier {{ param }}",
+      "deleted": "A Estudiante is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Estudiante {{ id }}?"
+      },
+      "detail": {
+        "title": "Estudiante"
+      },
+      "id": "ID",
+      "huella": "Huella",
+      "estudianteHorario": "Estudiante Horario",
+      "customer": "Customer",
+      "programadeformacion": "Programadeformacion",
+      "trimestre": "Trimestre",
+      "ficha": "Ficha"
+    }
+  }
+}

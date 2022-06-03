@@ -1,0 +1,41 @@
+{
+  "applications": ["fastasistance"],
+  "changelogDate": "20220603014232",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "tipo_documento",
+  "fields": [
+    {
+      "fieldName": "iniciales",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "nombreDocumento",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength", "unique"],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "estadoTipoDocumento",
+      "fieldType": "State",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "ACTIVE (Activo),INACTIVE (Inactivo)"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "TipoDocumento",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "tipoDocumento",
+      "relationshipName": "customer",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

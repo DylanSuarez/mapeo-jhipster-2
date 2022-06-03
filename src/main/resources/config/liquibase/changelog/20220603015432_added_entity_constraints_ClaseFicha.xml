@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity ClaseFicha.
+    -->
+    <changeSet id="20220603015432-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="ficha_id"
+                                 baseTableName="clase_ficha"
+                                 constraintName="fk_clase_ficha__ficha_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ficha"/>
+
+        <addForeignKeyConstraint baseColumnNames="clase_id"
+                                 baseTableName="clase_ficha"
+                                 constraintName="fk_clase_ficha__clase_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="clase"/>
+    </changeSet>
+</databaseChangeLog>
